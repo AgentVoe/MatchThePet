@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма для заполнения информации о питомце</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="post" id="pet-form">
+        <label for="pet-existence">Был ли у вас ранее питомец?</label>
+        <select id="pet-existence" name="pet-existence" class="form-select" required>
+            <option value="">Выберите ответ</option>
+            <option value="yes">Да</option>
+            <option value="no">Нет</option>
+        </select>
+
+        <label for="pet-character">Характер питомца:</label>
+        <select id="pet-character" name="pet-character" class="form-select" required>
+            <option value="">Выберите характер</option>
+            <option value="calm">Спокойный</option>
+            <option value="playful">Игривый</option>
+            <option value="aggressive">Агрессивный</option>
+        </select>
+
+        <label for="pet-type">Тип питомца:</label>
+        <select id="pet-type" name="pet-type" class="form-select" required>
+            <option value="">Выберите тип</option>
+            <option value="indoor">Домашний</option>
+            <option value="outdoor">Уличный</option>
+            <option value="mixes">Смешанный</option>
+        </select>
+
+        <label for="children-existence">Есть ли у вас дети?</label>
+        <select id="children-existence" name="children-existence" class="form-select" required>
+            <option value="">Выберите ответ</option>
+            <option value="yes">Да</option>
+            <option value="no">Нет</option>
+        </select>
+
+        <label for="care-level">Уровень сложности ухода:</label>
+        <select id="care-level" name="care-level" class="form-select" required>
+            <option value="">Выберите уровень сложности</option>
+            <option value="easy">Простой</option>
+            <option value="moderate">Средний</option>
+            <option value="difficult">Сложный</option>
+        </select>
+
+        <label for="training-level">Уровень сложности дрессировки:</label>
+        <select id="training-level" name="training-level" class="form-select" required>
+            <option value="">Выберите уровень сложности</option>
+            <option value="easy">Простой</option>
+            <option value="moderate">Средний</option>
+            <option value="difficult">Сложный</option>
+        </select>
+
+        <button type="submit" class="form-button">Отправить</button>
+    </form>
+    <script  src="/form/index.js"></script>
+</body>
+</html>
