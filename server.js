@@ -1,49 +1,35 @@
 const express = require('express');
-const { Pool } = require('pg');
-
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'matchPet',
-    password: 'admin',
-    port: 5432,
-});
-
+const bodyParser = require('body-parser');
+const mime = require('mime');
 const app = express();
+const db = require('./queries.js');
+const port = 3000;
+app.use(express.static(__dirname + '/public'));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+);
 
-// Define an endpoint to retrieve pet data from database
-app.get('/pets', async (req, res) => {
-    try {
-        const client = await pool.connect();
-        const result = await client.query('SELECT * FROM pets');
-        res.json(result.rows);
-        client.release();
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: err });
-    }
+/*
+ Добавли маршрутизацию страниц
+ / - означает главную, там форма для заполнения
+ /matches страница на которой будут отображаться результаты совпадений
+ */
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/public/form/index.html');
 });
 
-// Define an endpoint to add a new pet to the database
-app.post('/pets', async (req, res) => {
-    try {
-        const { name, breed, age } = req.body;
-        const client = await pool.connect();
-        const result = await client.query(
-            'INSERT INTO pets (name, breed, age) VALUES ($1, $2, $3)',
-            [name, breed, age]
-        );
-        res.status(201).json(result.rows[0]);
-        client.release();
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: err });
-    }
+
+app.post('/matches', function(req, res) {
+    res.sendFile(__dirname + '/public/matches/index.html');
+    res.send('Hi');
 });
 
-app.listen(3000, () => {
-    console.log('Server listening on port 3000');
+// app.get('/pets', db.getPets);
+// app.get('/pets/:care', db.getPetByParam);
+app.listen(port, () =>{
+    console.log(`App running on port:${port}`);
 });

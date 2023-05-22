@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" >
     <title>Форма для заполнения информации о питомце</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"  type="text/css" href="/form/style.css">
 </head>
 <body>
-    <form method="post" id="pet-form">
+    <form action="../matches" method="post" id="pet-form">
         <label for="pet-existence">Был ли у вас ранее питомец?</label>
         <select id="pet-existence" name="pet-existence" class="form-select" required>
             <option value="">Выберите ответ</option>
@@ -37,8 +37,8 @@
             <option value="no">Нет</option>
         </select>
 
-        <label for="care-level">Уровень сложности ухода:</label>
-        <select id="care-level" name="care-level" class="form-select" required>
+        <label for="care">Уровень сложности ухода:</label>
+        <select id="care" name="care" class="form-select" required>
             <option value="">Выберите уровень сложности</option>
             <option value="easy">Простой</option>
             <option value="moderate">Средний</option>
@@ -55,6 +55,5 @@
 
         <button type="submit" class="form-button">Отправить</button>
     </form>
-    <script  src="/form/index.js"></script>
 </body>
 </html>

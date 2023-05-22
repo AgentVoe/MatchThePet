@@ -38,31 +38,31 @@ form {
     background-color: #3e8e41;
 }
 
-/* Добавление стиля для заголовка */
+
 .form-title {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Стилизация опций внутри select */
+
 .form-select option {
     background-color: #fff;
     color: #333;
 }
 
-/* Стилизация обязательных полей */
+
 .form-select[required] {
     border-left: 5px solid red;
 }
 
-/* Стилизация кнопки при наведении мыши */
+
 .form-button:hover {
     background-color: #3e8e41;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
-/* Стилизация кнопки при активации */
+
 .form-button:active {
     background-color: #1e4420;
 }
